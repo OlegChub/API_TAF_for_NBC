@@ -14,6 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 public class ApiTests {
+
+    // Run in a parallel with command: mvn clean test
+
     public static final ApiClient apiClient = new ApiClient();
     public static final PostsRequests postsRequests = new PostsRequests(apiClient);
     public static final CommentsRequests commentsRequests = new CommentsRequests(apiClient);
@@ -27,7 +30,6 @@ public class ApiTests {
 
         validatableResponse.statusCode(HttpStatus.SC_OK);
         assertEquals(TestData.POSTS_QUANTITY, actualPostsQuantity);
-
     }
 
     @Test
@@ -178,7 +180,6 @@ public class ApiTests {
         validatableResponse.statusCode(HttpStatus.SC_OK);
         assertEquals("{}", getResponseAsString(validatableResponse));
         // should return NOT_FOUND
-
     }
 
     @Test
@@ -214,6 +215,7 @@ public class ApiTests {
         validatableResponse.statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
         // should return NOT_FOUND
     }
+
     @Test
     @DisplayName("PATCH post with not existing ID")
     @Description("Updates post with not existing ID")
