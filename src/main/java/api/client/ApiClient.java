@@ -15,10 +15,15 @@ public class ApiClient {
 
     private final String baseUrl = getHost();
     private final Map<String, String> headers = new HashMap<>();
+    private final Map<String, String> queryParams = new HashMap<>();
     private Object requestBody;
 
     public void setRequestBody(Object requestBody) {
         this.requestBody = requestBody;
+    }
+
+    public void addQueryParams(String key, String value) {
+        queryParams.put(key, value);
     }
 
     public void addHeader(String key, String value) {
@@ -34,6 +39,11 @@ public class ApiClient {
             request.headers(getDefaultHeaders());
         } else {
             request.headers(headers);
+        }
+        if (queryParams.size() != 0) {
+            for (Map.Entry<String, String> param : queryParams.entrySet()) {
+                request.queryParam(param.getKey(), param.getValue());
+            }
         }
 
         if (requestBody != null) {

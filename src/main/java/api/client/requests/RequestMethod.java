@@ -1,5 +1,5 @@
 package api.client.requests;
 
 public enum RequestMethod {
-    GET, POST, PUT, DELETE
+    GET, POST, PUT, PATCH, DELETE
 }
