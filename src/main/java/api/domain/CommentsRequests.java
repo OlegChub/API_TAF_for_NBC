@@ -2,7 +2,6 @@ package api.domain;
 
 import api.client.ApiClient;
 import api.client.requests.RequestMethod;
-import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 
 public class CommentsRequests {
@@ -12,8 +11,6 @@ public class CommentsRequests {
     public CommentsRequests(ApiClient api) {
         this.api = api;
     }
-    //TODO
-    // GET/comments?postId= {id}
 
     public ValidatableResponse getExactPostComments(int postId) {
         api.addQueryParams("postId", String.valueOf(postId));

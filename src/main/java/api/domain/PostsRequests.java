@@ -5,12 +5,12 @@ import api.client.requests.RequestMethod;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 
-public class PostRequests {
+public class PostsRequests {
     //TODO create endpoints class
     private final String POSTS_ENDPOINT = "/posts";
     private final ApiClient api;
 
-    public PostRequests(ApiClient api) {
+    public PostsRequests(ApiClient api) {
         this.api = api;
     }
 
